@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  certdumper:
+    container_name: traefik_mailcow_cert_adapter
+    image: jovobe/mailcow-traefik-acme-adapter:latest
+    depends_on:
+      - reverse-proxy
+    restart: always
+    volumes:
+      - ./:/traefik:ro
+      - /opt/mailcow-dockerized/data/assets/ssl:/ssl-share:rw
+      - /var/run/docker.sock:/var/run/docker.sock:rw
+    environment:
+      - DOMAIN=your-domain-goes-here.tld
