@@ -10,7 +10,7 @@ RUN apk add --update \
   util-linux \
   bash \
   tini \
-  && curl https://raw.githubusercontent.com/containous/traefik/master/contrib/scripts/dumpcerts.sh -o /dumpcerts.sh \
+  && curl https://github.com/containous/traefik/raw/v1.7/contrib/scripts/dumpcerts.sh -o /dumpcerts.sh \
   && chmod +x /dumpcerts.sh \
   && mkdir -p /dump-target /ssl-share
 
