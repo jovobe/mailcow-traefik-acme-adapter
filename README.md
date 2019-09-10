@@ -20,6 +20,10 @@ certdumper:
   depends_on:
     # Here should be the name of your traefik service
     - name-of-traefik-service-goes-here
+    # Here should be mailcow services that will be restarted after cert change
+    - postfix-mailcow
+    - dovecot-mailcow
+    - nginx-mailcow
   restart: always
   volumes:
     # This volume mounts the traefik root folder into the container for access
